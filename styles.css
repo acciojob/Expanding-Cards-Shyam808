@@ -1,1 +1,48 @@
-/*  your css code here. If applicable */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #333;
+}
+
+.container {
+  display: flex;
+  width: 90vw;
+  height: 80vh;
+  gap: 10px;
+}
+
+.panel {
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+  color: white;
+  position: relative;
+  flex: 0.5;
+  cursor: pointer;
+  transition: flex 0.5s ease-in;
+  display: flex;
+  align-items: flex-end;
+  padding: 20px;
+  justify-content: center;
+}
+
+.panel h3.img-text {
+  font-size: 24px;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 8px 12px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.panel.active {
+  flex: 5;
+}

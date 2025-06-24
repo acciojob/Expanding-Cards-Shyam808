@@ -1,0 +1,4 @@
+{
+    "testRepo": "Expanding-Cards-solution",
+    "pathToFile": "cypress/integration/tests/test.spec.js"
+}

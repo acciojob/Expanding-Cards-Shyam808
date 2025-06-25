@@ -1,79 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Expanding Cards Test</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background: #ddd;
-    }
-    .container {
-      display: flex;
-      width: 90vw;
-      height: 70vh;
-      gap: 10px;
-      overflow: hidden;
-    }
-    .panel {
-      flex: 1;
-      background-size: cover;
-      background-position: center;
-      border-radius: 20px;
-      position: relative;
-      transition: all 0.5s ease-in-out;
-      cursor: pointer;
-    }
-    .panel h3 {
-      position: absolute;
-      bottom: 20px;
-      left: 20px;
-      color: white;
-      font-size: 24px;
-      opacity: 0;
-      transition: opacity 0.3s ease-in-out;
-    }
-    .panel.active {
-      flex: 5;
-    }
-    .panel.active h3 {
-      opacity: 1;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <title>Speech Synthesis</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
-    <div class="panel active" style="background-image: url('https://picsum.photos/id/237/600/400');">
-      <h3>Dog</h3>
-    </div>
-    <div class="panel" style="background-image: url('https://picsum.photos/id/238/600/400');">
-      <h3>Nature</h3>
-    </div>
-    <div class="panel" style="background-image: url('https://picsum.photos/id/239/600/400');">
-      <h3>Mountains</h3>
-    </div>
-    <div class="panel" style="background-image: url('https://picsum.photos/id/240/600/400');">
-      <h3>Sea</h3>
-    </div>
-    <div class="panel" style="background-image: url('https://picsum.photos/id/241/600/400');">
-      <h3>Forest</h3>
+    <h1>Text to Speech</h1>
+    <textarea id="text" placeholder="Type something to speak..."></textarea>
+
+    <label for="voices">Choose Voice:</label>
+    <select id="voices"></select>
+
+    <label for="rate">Rate:</label>
+    <input type="range" id="rate" min="0.5" max="2" step="0.1" value="1">
+    <span id="rateValue">1</span>
+
+    <label for="pitch">Pitch:</label>
+    <input type="range" id="pitch" min="0" max="2" step="0.1" value="1">
+    <span id="pitchValue">1</span>
+
+    <div class="buttons">
+      <button id="speakBtn">Speak</button>
+      <button id="stopBtn">Stop</button>
     </div>
   </div>
 
-  <script>
-    const panels = document.querySelectorAll('.panel');
-    panels.forEach(panel => {
-      panel.addEventListener('click', () => {
-        panels.forEach(p => p.classList.remove('active'));
-        panel.classList.add('active');
-      });
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>

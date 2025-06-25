@@ -5,12 +5,12 @@
 }
 
 body {
-  font-family: 'Segoe UI', sans-serif;
+  font-family: sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #333;
+  background: #f2f2f2;
 }
 
 .container {
@@ -18,31 +18,33 @@ body {
   width: 90vw;
   height: 80vh;
   gap: 10px;
+  overflow: hidden;
 }
 
 .panel {
+  flex: 1;
   background-size: cover;
   background-position: center;
-  border-radius: 20px;
-  color: white;
+  border-radius: 50px;
   position: relative;
-  flex: 0.5;
+  transition: all 0.5s ease-in-out;
   cursor: pointer;
-  transition: flex 0.5s ease-in;
-  display: flex;
-  align-items: flex-end;
-  padding: 20px;
-  justify-content: center;
 }
 
-.panel h3.img-text {
+.panel h3 {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  color: white;
   font-size: 24px;
-  background-color: rgba(0, 0, 0, 0.5);
-  padding: 8px 12px;
-  border-radius: 10px;
-  margin-bottom: 20px;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
 }
 
 .panel.active {
   flex: 5;
+}
+
+.panel.active h3 {
+  opacity: 1;
 }

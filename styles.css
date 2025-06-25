@@ -1,48 +1,50 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
-  font-family: Arial, sans-serif;
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
   background: #f2f2f2;
-  padding: 40px;
 }
 
 .container {
-  max-width: 600px;
-  margin: auto;
-  background: white;
-  padding: 30px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px #ccc;
+  display: flex;
+  width: 90vw;
+  height: 80vh;
+  gap: 10px;
+  overflow: hidden;
 }
 
-textarea {
-  width: 100%;
-  height: 100px;
-  margin-bottom: 20px;
-  font-size: 16px;
-  padding: 10px;
-}
-
-label {
-  display: block;
-  margin-top: 10px;
-}
-
-input[type="range"] {
-  width: 100%;
-}
-
-select {
-  width: 100%;
-  padding: 8px;
-  margin-top: 5px;
-}
-
-.buttons {
-  margin-top: 20px;
-}
-
-button {
-  padding: 10px 20px;
-  margin-right: 10px;
-  font-size: 16px;
+.panel {
+  flex: 1;
+  background-size: cover;
+  background-position: center;
+  border-radius: 50px;
+  position: relative;
+  transition: all 0.5s ease-in-out;
   cursor: pointer;
+}
+
+.panel h3 {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  color: white;
+  font-size: 24px;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.panel.active {
+  flex: 5;
+}
+
+.panel.active h3 {
+  opacity: 1;
 }

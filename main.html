@@ -3,48 +3,77 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Expanding Cards</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Expanding Cards Test</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #ddd;
+    }
+    .container {
+      display: flex;
+      width: 90vw;
+      height: 70vh;
+      gap: 10px;
+      overflow: hidden;
+    }
+    .panel {
+      flex: 1;
+      background-size: cover;
+      background-position: center;
+      border-radius: 20px;
+      position: relative;
+      transition: all 0.5s ease-in-out;
+      cursor: pointer;
+    }
+    .panel h3 {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      color: white;
+      font-size: 24px;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+    .panel.active {
+      flex: 5;
+    }
+    .panel.active h3 {
+      opacity: 1;
+    }
+  </style>
 </head>
 <body>
   <div class="container">
-    <div
-      class="panel active"
-      id="panel-1"
-      style="background-image: url('https://images.unsplash.com/photo-1558979158-65a1eaa08691?auto=format&fit=crop&w=1350&q=80');"
-    >
-      <h3 class="img-text">Explore the world</h3>
+    <div class="panel active" style="background-image: url('https://picsum.photos/id/237/600/400');">
+      <h3>Dog</h3>
     </div>
-    <div
-      class="panel"
-      id="panel-2"
-      style="background-image: url('https://images.unsplash.com/photo-1572276596237-5db2c3e16c5d?auto=format&fit=crop&w=1350&q=80');"
-    >
-      <h3 class="img-text">Wild Forest</h3>
+    <div class="panel" style="background-image: url('https://picsum.photos/id/238/600/400');">
+      <h3>Nature</h3>
     </div>
-    <div
-      class="panel"
-      id="panel-3"
-      style="background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1353&q=80');"
-    >
-      <h3 class="img-text">Sunny Beach</h3>
+    <div class="panel" style="background-image: url('https://picsum.photos/id/239/600/400');">
+      <h3>Mountains</h3>
     </div>
-    <div
-      class="panel"
-      id="panel-4"
-      style="background-image: url('https://images.unsplash.com/photo-1551009175-8a68da93d5f9?auto=format&fit=crop&w=1351&q=80');"
-    >
-      <h3 class="img-text">Mountain Cloud</h3>
+    <div class="panel" style="background-image: url('https://picsum.photos/id/240/600/400');">
+      <h3>Sea</h3>
     </div>
-    <div
-      class="panel"
-      id="panel-5"
-      style="background-image: url('https://images.unsplash.com/photo-1549880338-65ddcdfd017b?auto=format&fit=crop&w=1350&q=80');"
-    >
-      <h3 class="img-text">City on Winter</h3>
+    <div class="panel" style="background-image: url('https://picsum.photos/id/241/600/400');">
+      <h3>Forest</h3>
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <script>
+    const panels = document.querySelectorAll('.panel');
+    panels.forEach(panel => {
+      panel.addEventListener('click', () => {
+        panels.forEach(p => p.classList.remove('active'));
+        panel.classList.add('active');
+      });
+    });
+  </script>
 </body>
 </html>
